@@ -1,7 +1,9 @@
+#!/usr/bin/env node
+
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
-import * as dotenv from "dotenv"
+import dotenv from "dotenv";
 dotenv.config();
 
 const server = new McpServer({
@@ -13,9 +15,11 @@ const server = new McpServer({
 })
 
 const GetUserData = async () => {
+
+  
   const data = await fetch("https://api.val.town/v1/me", {
     headers: {
-      "Authorization":`Bearer ${process.env.KEY}`
+      "Authorization": `Bearer ${process.env.KEY}`
     }
   })
   
@@ -38,7 +42,6 @@ const CreateVal = async ({name, description, privacy}:{name: string | undefined,
   
   return await data.json();
 }
-
 
 server.tool(
   "get-user-data",
@@ -97,11 +100,13 @@ server.tool(
   }
 )
 
-export async function main() {
-  
+
+
+async function main() {
+  console.log("🚀 Val Town MCP Server");
+  console.log(process.env.KEY);
   const transport = new StdioServerTransport();
-  await server.connect(transport)
-  
+  await server.connect(transport);
 }
 
 main().catch(console.error);

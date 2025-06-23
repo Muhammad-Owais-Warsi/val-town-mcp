@@ -1,20 +1,27 @@
 {
   "name": "val-town-mcp",
-  "version": "1.0.1",
-  "main": "./src/index.ts",
+  "description": "MCP for val town.",
+  "version": "2.0.0",
+  "main": "build/index.js",
   "type": "module",
   "bin": {
-    "val-town-mcp": "./src/index.ts"
+    "val-town-mcp": "./build/index.js"
   },
   "scripts": {
     "build": "tsc",
-
+    "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "keywords": [
+    "mcp",
+    "val-town",
+    "server"
+  ],
+  "author": "Muhammad Owais Warsi",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/muhammad_owais_warsi/val-town-mcp"
+  },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.13.0",
     "dotenv": "^16.5.0",
@@ -23,5 +30,8 @@
   "devDependencies": {
     "@types/node": "^24.0.3",
     "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }
