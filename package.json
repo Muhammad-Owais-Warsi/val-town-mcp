@@ -1,14 +1,14 @@
 {
-  "name": "val-town",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "val-town-mcp",
+  "version": "1.0.1",
+  "main": "./src/index.ts",
   "type": "module",
   "bin": {
-    "val-town-mcp": "./build/index.js"
+    "val-town-mcp": "./src/index.ts"
   },
   "scripts": {
     "build": "tsc",
-    "start": "node ./build/index.js",
+
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
